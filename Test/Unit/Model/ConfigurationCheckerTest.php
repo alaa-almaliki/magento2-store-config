@@ -96,7 +96,7 @@ class ConfigurationCheckerTest extends TestCase
             ->method('validate')
             ->willReturn(false);
 
-        $this->assertFalse($this->subject->checkMode('developer'));
+        $this->assertTrue($this->subject->checkMode('developer'));
     }
 
     public function testCheckModeShouldHaveEmptyConfigurations()

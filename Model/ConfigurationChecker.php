@@ -78,8 +78,9 @@ class ConfigurationChecker implements ConfigurationCheckerInterface
         $ok = true;
         foreach ($locatedFiles as $files) {
             foreach ($files as $file) {
-                $ok &= $this->fileExistsValidator->validate($file->getFile()) &&
-                    $this->getConfigurationStatus($file);
+                if ($this->fileExistsValidator->validate($file->getFile())) {
+                    $ok &= $this->getConfigurationStatus($file);
+                }
 
                 /**
                  * break early if checks fail
