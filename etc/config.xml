@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <store_config>
+            <general>
+                <enabled>1</enabled>
+                <recurring_enabled>1</recurring_enabled>
+                <file_logger_enabled>1</file_logger_enabled>
+                <console_logger_enabled>1</console_logger_enabled>
+            </general>
+        </store_config>
+    </default>
+</config>

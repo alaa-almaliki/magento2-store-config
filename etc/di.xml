@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Alaa\StoreConfig\Model\Api\FileListInterface"
+                type="Alaa\StoreConfig\Model\FileList" />
+    <preference for="Alaa\StoreConfig\Model\Api\CatchableInterface"
+                type="Alaa\StoreConfig\Model\Catchable" />
+    <preference for="Alaa\StoreConfig\Model\Api\ConfigReaderInterface"
+                type="Alaa\StoreConfig\Model\ConfigReader" />
+    <preference for="Alaa\StoreConfig\Model\Api\ConfigurationInterface"
+                type="Alaa\StoreConfig\Model\Configuration" />
+    <preference for="Alaa\StoreConfig\Model\Api\ConfigurationValidationInterface"
+                type="Alaa\StoreConfig\ModelConfigurationValidation" />
+    <preference for="Alaa\StoreConfig\Api\Data\ConfigFileInterface"
+                type="Alaa\StoreConfig\Model\ConfigFile" />
+    <preference for="Alaa\StoreConfig\Model\Api\ConfigWriterInterface"
+                type="Alaa\StoreConfig\Model\ConfigWriter" />
+    <preference for="Alaa\StoreConfig\Model\Api\ValidDeployModeInterface"
+                type="Alaa\StoreConfig\Model\DeployMode" />
+    <preference for="Alaa\StoreConfig\Model\Api\ConfigDumperInterface"
+                type="Alaa\StoreConfig\Model\ConfigDumper" />
+    <preference for="Alaa\StoreConfig\Model\Api\ScopeConfigGeneratorInterface"
+                type="Alaa\StoreConfig\Model\ScopeConfigGenerator" />
+    <preference for="Alaa\StoreConfig\Model\Api\FileLocatorInterface"
+                type="Alaa\StoreConfig\Model\FileLocator" />
+    <preference for="Alaa\StoreConfig\Model\Api\ConfigurationCheckerInterface"
+                type="Alaa\StoreConfig\Model\ConfigurationChecker" />
+    <type name="Alaa\StoreConfig\Model\Scopes">
+        <arguments>
+            <argument name="scopeIds" xsi:type="array">
+                <item name="websites" xsi:type="object">Alaa\StoreConfig\Model\WebsiteScopeId</item>
+                <item name="stores" xsi:type="object">Alaa\StoreConfig\Model\StoreScopeId</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Alaa\StoreConfig\Validators\RequiredArgumentsValidator">
+        <arguments>
+            <argument name="requiredArguments" xsi:type="array">
+                <item name="0" xsi:type="string">path</item>
+                <item name="1" xsi:type="string">value</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Alaa\StoreConfig\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">store-config</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">Alaa\StoreConfig\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Alaa\StoreConfig\Logger\ConsoleLogger">
+        <arguments>
+            <argument name="output" xsi:type="object">Symfony\Component\Console\Output\ConsoleOutput</argument>
+        </arguments>
+    </type>
+    <type name="Alaa\StoreConfig\Model\LoggerPool">
+        <arguments>
+            <argument name="loggers" xsi:type="array">
+                <item name="fileLogger" xsi:type="object">Alaa\StoreConfig\Logger\Logger</item>
+                <item name="consoleLogger" xsi:type="object">Alaa\StoreConfig\Logger\ConsoleLogger</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="configurationCheckerCommand" xsi:type="object">Alaa\StoreConfig\Console\Command\ConfigurationCheckerCommand</item>
+                <item name="configurationWriterCommand" xsi:type="object">Alaa\StoreConfig\Console\Command\ConfigurationWriterCommand</item>
+                <item name="configDumperCommand" xsi:type="object">Alaa\StoreConfig\Console\Command\ConfigDumperCommand</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

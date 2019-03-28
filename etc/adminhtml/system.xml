@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="store_config">
+            <label>Store Config</label>
+        </tab>
+        <section id="store_config" type="text" translate="label" showInStore="0" showInWebsite="0" showInDefault="1" sortOrder="1">
+            <tab>store_config</tab>
+            <label>Store Config</label>
+            <resource>Alaa_StoreConfig::settings</resource>
+            <group id="general" type="text" showInDefault="1" showInWebsite="0" showInStore="0" sortOrder="1" translate="label">
+                <label>General Settings</label>
+                <field id="enabled" translate="label" sortOrder="1" showInStore="0" showInWebsite="0" showInDefault="1" type="select">
+                    <label>Enable Store Config</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="recurring_enabled" translate="label" sortOrder="2" showInStore="0" showInWebsite="0" showInDefault="1" type="select">
+                    <label>Enable Recurring Script</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="file_logger_enabled" translate="label" sortOrder="3" showInStore="0" showInWebsite="0" showInDefault="1" type="select">
+                    <label>Enable File Logger</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="console_logger_enabled" translate="label" sortOrder="4" showInStore="0" showInWebsite="0" showInDefault="1" type="select">
+                    <label>Enable Console Logger</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
